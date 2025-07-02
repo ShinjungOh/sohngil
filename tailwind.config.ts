@@ -63,17 +63,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// 웰니스 테마 색상 추가
-				healing: {
-					mint: '#4ECDC4',
-					'mint-light': '#7FDEDB',
-					'mint-dark': '#2BA89D',
-					sky: '#87CEEB',
-					'sky-light': '#B4E2F7',
-					'sky-dark': '#5FADD1',
-					sage: '#9CAF88',
-					lavender: '#B19CD9',
-					peach: '#FFB6C1'
+				// 손길 브랜드 컬러
+				sonkil: {
+					primary: '#7DD3C0',
+					'primary-light': '#A8E6D5',
+					'primary-dark': '#5BA396',
+					secondary: '#87CEEB',
+					'secondary-light': '#B4E2F7',
+					'secondary-dark': '#5FADD1',
+					accent: '#FF6B6B',
+					'accent-light': '#FF9999',
+					'accent-dark': '#E55555',
+					background: '#F8FFFE'
 				}
 			},
 			borderRadius: {

@@ -33,7 +33,7 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
       {/* 제목 */}
       <div className="text-center space-y-2">
         <h2 className="text-2xl font-bold text-gray-800">어떤 증상이 있으신가요?</h2>
-        <p className="text-healing-mint-dark">최대 5개까지 선택 가능합니다</p>
+        <p className="text-sonkil-primary-dark">최대 5개까지 선택 가능합니다</p>
       </div>
 
       {/* 카테고리 탭 */}
@@ -46,8 +46,8 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
             onClick={() => setActiveCategory(category)}
             className={`rounded-full ${
               activeCategory === category 
-                ? 'bg-healing-mint text-white hover:bg-healing-mint-dark' 
-                : 'border-healing-mint text-healing-mint hover:bg-healing-mint/10'
+                ? 'bg-sonkil-primary text-white hover:bg-sonkil-primary-dark' 
+                : 'border-sonkil-primary text-sonkil-primary hover:bg-sonkil-primary/10'
             }`}
           >
             {category}
@@ -57,7 +57,7 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
 
       {/* 선택된 증상 표시 */}
       {selectedSymptoms.length > 0 && (
-        <Card className="bg-healing-mint/5 border-healing-mint/20">
+        <Card className="bg-sonkil-primary/5 border-sonkil-primary/20">
           <CardContent className="p-4">
             <p className="text-sm font-medium text-gray-700 mb-2">선택된 증상</p>
             <div className="flex flex-wrap gap-2">
@@ -67,7 +67,7 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
                   <Badge 
                     key={symptomId}
                     variant="secondary"
-                    className="bg-healing-mint text-white cursor-pointer hover:bg-healing-mint-dark"
+                    className="bg-sonkil-primary text-white cursor-pointer hover:bg-sonkil-primary-dark"
                     onClick={() => toggleSymptom(symptomId)}
                   >
                     {symptom.icon} {symptom.name} ×
@@ -89,8 +89,8 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
                 variant={selectedSymptoms.includes(symptom.id) ? "default" : "outline"}
                 className={`p-4 h-auto flex flex-col items-center gap-2 transition-all duration-200 ${
                   selectedSymptoms.includes(symptom.id)
-                    ? 'bg-healing-mint text-white hover:bg-healing-mint-dark shadow-lg scale-105'
-                    : 'border-healing-mint/30 hover:border-healing-mint hover:bg-healing-mint/5'
+                    ? 'bg-sonkil-primary text-white hover:bg-sonkil-primary-dark shadow-lg scale-105'
+                    : 'border-sonkil-primary/30 hover:border-sonkil-primary hover:bg-sonkil-primary/5'
                 }`}
                 onClick={() => toggleSymptom(symptom.id)}
                 disabled={!selectedSymptoms.includes(symptom.id) && selectedSymptoms.length >= 5}
@@ -107,7 +107,7 @@ const SymptomSelector: React.FC<SymptomSelectorProps> = ({
       <Button
         onClick={onAnalyze}
         disabled={selectedSymptoms.length === 0}
-        className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-healing-mint to-healing-sky hover:from-healing-mint-dark hover:to-healing-sky-dark disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-300"
+        className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-sonkil-primary to-sonkil-secondary hover:from-sonkil-primary-dark hover:to-sonkil-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all duration-300"
       >
         {selectedSymptoms.length === 0 ? '증상을 선택해주세요' : `${selectedSymptoms.length}개 증상 분석하기`}
       </Button>

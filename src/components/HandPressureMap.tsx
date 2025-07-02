@@ -39,8 +39,8 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
               onClick={() => setSelectedSide('palm')}
               className={`rounded-full px-6 ${
                 selectedSide === 'palm' 
-                  ? 'bg-healing-mint text-white' 
-                  : 'text-gray-600 hover:text-healing-mint'
+                  ? 'bg-sonkil-primary text-white' 
+                  : 'text-gray-600 hover:text-sonkil-primary'
               }`}
             >
               손바닥
@@ -51,8 +51,8 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
               onClick={() => setSelectedSide('back')}
               className={`rounded-full px-6 ${
                 selectedSide === 'back' 
-                  ? 'bg-healing-mint text-white' 
-                  : 'text-gray-600 hover:text-healing-mint'
+                  ? 'bg-sonkil-primary text-white' 
+                  : 'text-gray-600 hover:text-sonkil-primary'
               }`}
             >
               손등
@@ -64,7 +64,7 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
       {/* 손 이미지와 지압점 */}
       <Card className="overflow-hidden">
         <CardContent className="p-0">
-          <div className="relative bg-gradient-to-b from-healing-mint/5 to-healing-sky/5 aspect-[4/5]">
+          <div className="relative bg-gradient-to-b from-sonkil-primary/5 to-sonkil-secondary/5 aspect-[4/5]">
             {/* 손 실루엣 */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className={`relative w-64 h-80 ${
@@ -86,10 +86,10 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
                   >
                     <div className={`w-6 h-6 rounded-full border-2 border-white shadow-lg transition-all duration-300 group-hover:scale-125 animate-pulse-gentle ${
                       selectedPoint?.id === point.id
-                        ? 'bg-red-500 shadow-red-200'
+                        ? 'bg-sonkil-accent shadow-sonkil-accent/30'
                         : index === 0
-                        ? 'bg-red-400 shadow-red-100'
-                        : 'bg-yellow-400 shadow-yellow-100'
+                        ? 'bg-sonkil-accent/80 shadow-sonkil-accent/20'
+                        : 'bg-sonkil-primary shadow-sonkil-primary/20'
                     }`}>
                       <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-bold text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity bg-white px-2 py-1 rounded shadow-md whitespace-nowrap">
                         {point.koName}
@@ -117,7 +117,7 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
       {filteredPoints.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg text-healing-mint-dark">지압 순서</CardTitle>
+            <CardTitle className="text-lg text-sonkil-primary-dark">지압 순서</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {filteredPoints.map((point, index) => (
@@ -125,8 +125,8 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
                 key={point.id}
                 className={`p-3 rounded-lg border-2 transition-all cursor-pointer ${
                   selectedPoint?.id === point.id
-                    ? 'border-healing-mint bg-healing-mint/5'
-                    : 'border-gray-200 hover:border-healing-mint/50 hover:bg-gray-50'
+                    ? 'border-sonkil-primary bg-sonkil-primary/5'
+                    : 'border-gray-200 hover:border-sonkil-primary/50 hover:bg-gray-50'
                 }`}
                 onClick={() => handlePointClick(point)}
               >

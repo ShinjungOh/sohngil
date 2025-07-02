@@ -6,7 +6,7 @@ import HandPressureMap from '@/components/HandPressureMap';
 import PressureGuide from '@/components/PressureGuide';
 import { Button } from '@/components/ui/button';
 import { acupressurePoints, symptoms, AcupressurePoint } from '@/data/acupressureData';
-import { ArrowLeft, Home } from 'lucide-react';
+import { ArrowLeft, Home, Heart } from 'lucide-react';
 
 type AppState = 'selection' | 'loading' | 'results' | 'guide';
 
@@ -67,7 +67,7 @@ const Index = () => {
   };
 
   const renderHeader = () => (
-    <div className="w-full bg-gradient-to-r from-healing-mint to-healing-sky text-white py-6 px-4 mb-8">
+    <div className="w-full bg-gradient-to-r from-sonkil-primary to-sonkil-secondary text-white py-6 px-4 mb-8">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-4">
           {currentState !== 'selection' && (
@@ -81,9 +81,14 @@ const Index = () => {
               이전
             </Button>
           )}
-          <div>
-            <h1 className="text-2xl font-bold">PalmHealing</h1>
-            <p className="text-sm opacity-90">손바닥 지압 가이드</p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+              <Heart className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold">손길</h1>
+              <p className="text-sm opacity-90">당신의 건강을 위한 작은 손길</p>
+            </div>
           </div>
         </div>
         
@@ -139,7 +144,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-healing-mint/5 via-white to-healing-sky/5">
+    <div className="min-h-screen bg-gradient-to-br from-sonkil-background via-white to-sonkil-secondary/5">
       {renderHeader()}
       
       <div className="container mx-auto px-4 pb-8">

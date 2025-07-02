@@ -46,13 +46,13 @@ const LoadingAnalysis: React.FC<LoadingAnalysisProps> = ({ onComplete }) => {
           {/* 로딩 애니메이션 */}
           <div className="relative">
             <div className="w-20 h-20 mx-auto mb-6">
-              <div className="w-full h-full border-4 border-healing-mint/20 rounded-full animate-spin">
-                <div className="w-4 h-4 bg-healing-mint rounded-full animate-pulse"></div>
+              <div className="w-full h-full border-4 border-sonkil-primary/20 rounded-full animate-spin">
+                <div className="w-4 h-4 bg-sonkil-primary rounded-full animate-pulse"></div>
               </div>
             </div>
             
             {/* 진행률 */}
-            <div className="text-2xl font-bold text-healing-mint-dark mb-2">
+            <div className="text-2xl font-bold text-sonkil-primary-dark mb-2">
               {progress}%
             </div>
           </div>
@@ -68,8 +68,8 @@ const LoadingAnalysis: React.FC<LoadingAnalysisProps> = ({ onComplete }) => {
           </div>
 
           {/* 팁 */}
-          <div className="bg-healing-mint/5 p-4 rounded-lg border border-healing-mint/20">
-            <div className="text-sm font-medium text-healing-mint-dark mb-2">
+          <div className="bg-sonkil-primary/5 p-4 rounded-lg border border-sonkil-primary/20">
+            <div className="text-sm font-medium text-sonkil-primary-dark mb-2">
               💡 지압 팁
             </div>
             <p className="text-sm text-gray-700 animate-fade-in-up">
@@ -80,7 +80,7 @@ const LoadingAnalysis: React.FC<LoadingAnalysisProps> = ({ onComplete }) => {
           {/* 진행 바 */}
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-healing-mint to-healing-sky h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-sonkil-primary to-sonkil-secondary h-2 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
