@@ -2,7 +2,7 @@
 
 ## 🔗 프로젝트 링크
 
-[손길 ✋]()
+[손길 ✋](https://sohngil.lovable.app)
 
 <br/>
 
