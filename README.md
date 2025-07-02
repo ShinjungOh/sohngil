@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# 손길(SohnGil)
 
-## Project info
+## 🔗 프로젝트 링크
 
-**URL**: https://lovable.dev/projects/ece9aec5-90e5-4301-be17-895803501f8a
+[손길 ✋]()
 
-## How can I edit this code?
+<br/>
 
-There are several ways of editing your application.
+## 🎭 페르소나
 
-**Use Lovable**
+### 1. 과로한 개발자 - 박지민 (31세)
+- **직업**: 스타트업 백엔드 개발자
+- **라이프스타일**: 하루 10시간 이상 코딩, 거북목 자세, 야근 빈번
+- **목표**: 만성 통증 없이 업무 효율성 유지하기
+- **니즈**: 즉각적인 통증 완화, 사무실에서 간편한 셀프케어
+- **페인 포인트**: 병원 갈 시간 없음, 목/어깨 만성 통증, 두통
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ece9aec5-90e5-4301-be17-895803501f8a) and start prompting.
+### 2. 수험생 - 이서준 (24세)
+- **직업**: 공무원 시험 준비생
+- **라이프스타일**: 하루 12시간 독서실, 불규칙한 식사, 운동 부족
+- **목표**: 최상의 컨디션으로 집중력 유지하기
+- **니즈**: 두통/눈 피로 해소, 스트레스 관리, 소화불량 개선
+- **페인 포인트**: 장시간 앉아있음, 시험 스트레스, 컨디션 관리 어려움
 
-Changes made via Lovable will be committed automatically to this repo.
+### 3. 워킹맘 - 김현정 (38세)
+- **직업**: 마케팅 팀장, 두 아이의 엄마
+- **라이프스타일**: 출근-회의-육아 반복, 개인 시간 부족
+- **목표**: 짧은 시간에 효과적으로 피로 회복하기
+- **니즈**: 5분 이내 빠른 케어, 스트레스 해소, 어깨 결림 완화
+- **페인 포인트**: 시간 부족, 육아 스트레스, 만성 피로
 
-**Use your preferred IDE**
+### 4. 프리랜서 디자이너 - 최민수 (29세)
+- **직업**: UI/UX 디자이너
+- **라이프스타일**: 재택근무, 불규칙한 생활, 밤샘 작업
+- **목표**: 창의력과 집중력을 유지하면서 건강 관리하기
+- **니즈**: 눈의 피로 해소, 손목 통증 완화, 두통 관리
+- **페인 포인트**: 불규칙한 생활 패턴, VDT 증후군, 운동 부족
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+<br/>
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎞️ 사용자 시나리오 및 스토리
 
-Follow these steps:
+### 1. 개발자의 오후 3시 루틴
+**상황**: 박지민이 점심 후 코드 리뷰를 하다가 심한 목 통증과 두통을 느낌
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**사용자 시나리오**:
+1. 책상에서 손길 앱 실행
+2. "목/어깨 결림"과 "두통" 증상 선택
+3. "손길 찾기" 버튼 클릭
+4. 손바닥의 후계혈, 합곡혈 위치 확인
+5. 타이머와 함께 각 지압점 30초씩 지압
+6. 5분 후 통증 완화되어 업무 복귀
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+> **사용자 스토리**:
+"개발자로서, 저는 업무 중 빠르게 목 통증을 완화하고 싶습니다. 그래서 병원에 가지 않고도 즉시 통증을 관리하며 코딩에 집중할 수 있습니다."
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 2. 수험생의 새벽 공부 시간
+**상황**: 이서준이 새벽 2시 공부 중 극심한 눈의 피로와 집중력 저하를 경험
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+**사용자 시나리오**:
+1. 독서실에서 조용히 손길 앱 오픈
+2. "눈의 피로"와 "스트레스" 선택
+3. 추천받은 정명혈, 태양혈 확인
+4. 이어폰으로 타이머 소리 들으며 지압
+5. 시원한 느낌과 함께 다시 집중력 회복
+6. "나의 손길" 기록에 저장
 
-**Edit a file directly in GitHub**
+> **사용자 스토리**:
+"수험생으로서, 저는 공부 중 눈의 피로를 빠르게 해소하고 싶습니다. 그래서 독서실을 벗어나지 않고도 컨디션을 회복할 수 있습니다."
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 3. 워킹맘의 점심시간 케어
+**상황**: 김현정이 연속 회의 후 점심시간에 극심한 어깨 결림과 스트레스를 느낌
 
-**Use GitHub Codespaces**
+**사용자 시나리오**:
+1. 회사 휴게실에서 손길 앱 실행
+2. "어깨 결림"과 "스트레스" 빠른 선택
+3. 5분 퀵 케어 모드 선택
+4. 견정혈, 내관혈 중심으로 지압
+5. 알림 설정으로 오후 3시 리마인더 등록
+6. 상쾌한 기분으로 오후 일정 시작
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**사용자 스토리**:
+"워킹맘으로서, 저는 짧은 휴식 시간에 효과적으로 피로를 풀고 싶습니다. 그래서 업무와 육아를 더 활기차게 할 수 있습니다."
 
-## What technologies are used for this project?
+### 4. 프리랜서의 밤샘 작업 중 케어
+**상황**: 최민수가 마감을 앞두고 밤샘 작업 중 두통과 손목 통증 발생
 
-This project is built with:
+**사용자 시나리오**:
+1. 작업 중 잠시 손길 앱 오픈
+2. "두통", "손목 통증" 선택
+3. 손등의 양계혈, 합곡혈 위치 확인
+4. 한 손씩 번갈아가며 지압
+5. 커피 대신 지압으로 각성 효과
+6. 즐겨찾기에 "밤샘 작업 세트" 저장
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+> **사용자 스토리**:
+"프리랜서로서, 저는 작업 중단 없이 통증을 관리하고 싶습니다. 그래서 마감을 지키면서도 건강을 챙길 수 있습니다."
 
-## How can I deploy this project?
+### 공통 사용자 니즈
+1. **즉시성**: 바로 실행 가능한 빠른 솔루션
+2. **간편성**: 복잡한 과정 없이 직관적 사용
+3. **효과성**: 실제로 증상이 완화되는 경험
+4. **휴대성**: 언제 어디서나 사용 가능
+5. **신뢰성**: 검증된 한의학 기반 정보
 
-Simply open [Lovable](https://lovable.dev/projects/ece9aec5-90e5-4301-be17-895803501f8a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 사용자 인사이트
+- 현대인들은 병원 갈 시간은 없지만 건강 관리 니즈는 높음
+- 5-10분의 짧은 시간 투자로 즉각적 효과를 원함
+- 복잡한 의학 지식보다 simple하고 직관적인 가이드 선호
+- 일상에 자연스럽게 녹아드는 건강 습관 형성 희망
