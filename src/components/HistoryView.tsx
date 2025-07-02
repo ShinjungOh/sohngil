@@ -158,7 +158,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
             <div className="text-sm text-gray-600">총 실천 횟수</div>
           </CardContent>
         </Card>
-        
+
         <Card className="bg-gradient-to-br from-sonkil-accent/10 to-sonkil-accent/5">
           <CardContent className="p-4 text-center">
             <Heart className="h-8 w-8 text-sonkil-accent mx-auto mb-2" />
@@ -204,9 +204,9 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
               <div key={index} className="flex items-center justify-between p-3 bg-sonkil-primary/5 rounded-lg">
                 <div>
                   <div className="font-medium text-gray-800">
-                    {new Date(record.date).toLocaleDateString('ko-KR', { 
-                      month: 'long', 
-                      day: 'numeric' 
+                    {new Date(record.date).toLocaleDateString('ko-KR', {
+                      month: 'long',
+                      day: 'numeric'
                     })}
                   </div>
                   <div className="text-sm text-gray-600">
@@ -216,7 +216,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
                 <Heart className="h-5 w-5 fill-sonkil-accent text-sonkil-accent" />
               </div>
             ))}
-          </Content>
+          </CardContent>
         </Card>
       )}
     </div>
