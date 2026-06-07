@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowLeft, Heart, Clock, Award } from 'lucide-react';
+import SymptomStats from '@/components/SymptomStats';
 
 interface HistoryRecord {
   date: string;
@@ -76,9 +77,6 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
             }`}
           >
             {day}
-            {hasRecord && (
-              <Heart className="absolute -top-1 -right-1 h-4 w-4 fill-sonkil-accent text-sonkil-accent" />
-            )}
           </div>
         </div>
       );
@@ -167,6 +165,9 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
           </CardContent>
         </Card>
       </div>
+
+      {/* 증상별 통계 */}
+      <SymptomStats history={history} />
 
       {/* 캘린더 */}
       <Card>
