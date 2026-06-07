@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route, Outlet, Navigate } from "react-router-dom";
 import { ProfileProvider, useProfile } from "@/context/ProfileContext";
 import { SessionProvider } from "@/context/SessionContext";
 import AppLayout from "@/components/AppLayout";
@@ -18,6 +18,10 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// 데스크탑(Tauri)은 file:// 방식이라 HashRouter, 웹은 깔끔한 URL을 위해 BrowserRouter
+const isTauri = typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
+const Router = isTauri ? HashRouter : BrowserRouter;
+
 // 프로필(온보딩)이 없으면 온보딩으로 보낸다
 const RequireProfile = () => {
   const { profile } = useProfile();
@@ -30,7 +34,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <Router>
         <ProfileProvider>
           <SessionProvider>
             <Routes>
@@ -56,7 +60,7 @@ const App = () => (
             </Routes>
           </SessionProvider>
         </ProfileProvider>
-      </BrowserRouter>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );
