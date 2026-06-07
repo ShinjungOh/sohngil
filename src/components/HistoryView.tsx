@@ -23,7 +23,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
 
   useEffect(() => {
     // 로컬 스토리지에서 히스토리 불러오기
-    const savedHistory = localStorage.getItem('sonkil-history');
+    const savedHistory = localStorage.getItem('sohngil-history');
     if (savedHistory) {
       setHistory(JSON.parse(savedHistory));
     }
@@ -70,9 +70,9 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
           <div
             className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
               isToday
-                ? 'bg-sonkil-primary text-white'
+                ? 'bg-sohngil-primary text-white'
                 : hasRecord
-                ? 'bg-sonkil-primary/20 text-sonkil-primary-dark'
+                ? 'bg-sohngil-primary/20 text-sohngil-primary-dark'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
@@ -139,7 +139,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
           variant="ghost"
           size="sm"
           onClick={onBack}
-          className="text-sonkil-primary hover:bg-sonkil-primary/10"
+          className="text-sohngil-primary hover:bg-sohngil-primary/10"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           돌아가기
@@ -149,18 +149,18 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
 
       {/* 통계 */}
       <div className="grid grid-cols-2 gap-4">
-        <Card className="bg-gradient-to-br from-sonkil-primary/10 to-sonkil-primary/5">
+        <Card className="bg-gradient-to-br from-sohngil-primary/10 to-sohngil-primary/5">
           <CardContent className="p-4 text-center">
-            <Award className="h-8 w-8 text-sonkil-primary mx-auto mb-2" />
-            <div className="text-2xl font-bold text-sonkil-primary-dark">{totalSessions}</div>
+            <Award className="h-8 w-8 text-sohngil-primary mx-auto mb-2" />
+            <div className="text-2xl font-bold text-sohngil-primary-dark">{totalSessions}</div>
             <div className="text-sm text-gray-600">총 실천 횟수</div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-sonkil-accent/10 to-sonkil-accent/5">
+        <Card className="bg-gradient-to-br from-sohngil-accent/10 to-sohngil-accent/5">
           <CardContent className="p-4 text-center">
-            <Heart className="h-8 w-8 text-sonkil-accent mx-auto mb-2" />
-            <div className="text-2xl font-bold text-sonkil-accent">{consecutiveDays}</div>
+            <Heart className="h-8 w-8 text-sohngil-accent mx-auto mb-2" />
+            <div className="text-2xl font-bold text-sohngil-accent">{consecutiveDays}</div>
             <div className="text-sm text-gray-600">연속 실천일</div>
           </CardContent>
         </Card>
@@ -173,7 +173,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
       <Card>
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2 text-lg">
-            <Calendar className="h-5 w-5 text-sonkil-primary" />
+            <Calendar className="h-5 w-5 text-sohngil-primary" />
             {currentMonth.getFullYear()}년 {currentMonth.getMonth() + 1}월
           </CardTitle>
         </CardHeader>
@@ -196,13 +196,13 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
-              <Clock className="h-5 w-5 text-sonkil-primary" />
+              <Clock className="h-5 w-5 text-sohngil-primary" />
               최근 손길 기록
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {recentRecords.map((record, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-sonkil-primary/5 rounded-lg">
+              <div key={index} className="flex items-center justify-between p-3 bg-sohngil-primary/5 rounded-lg">
                 <div>
                   <div className="font-medium text-gray-800">
                     {new Date(record.date).toLocaleDateString('ko-KR', {
@@ -214,7 +214,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
                     {record.symptoms.join(', ')} • {record.pointsUsed.length}개 지압점
                   </div>
                 </div>
-                <Heart className="h-5 w-5 fill-sonkil-accent text-sonkil-accent" />
+                <Heart className="h-5 w-5 fill-sohngil-accent text-sohngil-accent" />
               </div>
             ))}
           </CardContent>

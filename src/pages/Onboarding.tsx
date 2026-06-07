@@ -49,8 +49,8 @@ const Onboarding: React.FC = () => {
       onClick={onClick}
       className={`rounded-full ${
         active
-          ? 'bg-sonkil-primary text-white hover:bg-sonkil-primary-dark'
-          : 'border-sonkil-primary/30 text-gray-700 hover:bg-sonkil-primary/5'
+          ? 'bg-sohngil-primary text-white hover:bg-sohngil-primary-dark'
+          : 'border-sohngil-primary/30 text-gray-700 hover:bg-sohngil-primary/5'
       }`}
     >
       {children}
@@ -62,8 +62,8 @@ const Onboarding: React.FC = () => {
       {/* 환영 */}
       <div className="text-center space-y-3">
         <div className="flex justify-center">
-          <div className="w-14 h-14 rounded-full bg-sonkil-primary/10 flex items-center justify-center">
-            <Heart className="h-7 w-7 text-sonkil-primary" />
+          <div className="w-14 h-14 rounded-full bg-sohngil-primary/10 flex items-center justify-center">
+            <Heart className="h-7 w-7 text-sohngil-primary" />
           </div>
         </div>
         <h2 className="text-2xl font-bold text-gray-800">손길에 오신 걸 환영해요</h2>
@@ -125,7 +125,7 @@ const Onboarding: React.FC = () => {
       <Button
         onClick={handleSubmit}
         disabled={!canSubmit}
-        className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-sonkil-primary to-sonkil-secondary hover:from-sonkil-primary-dark hover:to-sonkil-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed shadow-lg transition-all duration-300"
+        className="w-full py-4 text-lg font-semibold bg-gradient-to-r from-sohngil-primary to-sohngil-secondary hover:from-sohngil-primary-dark hover:to-sohngil-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed shadow-lg transition-all duration-300"
       >
         {canSubmit ? '시작하기' : '항목을 모두 선택해주세요'}
       </Button>

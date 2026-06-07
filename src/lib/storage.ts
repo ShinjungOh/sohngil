@@ -34,6 +34,6 @@ export function removeKey(key: string): void {
 
 // 저장 키는 여기서 한 번에 관리
 export const STORAGE_KEYS = {
-  profile: 'sonkil-profile',
-  history: 'sonkil-history',
+  profile: 'sohngil-profile',
+  history: 'sohngil-history',
 } as const;

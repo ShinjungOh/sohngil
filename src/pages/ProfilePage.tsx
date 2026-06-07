@@ -27,7 +27,7 @@ const ProfilePage: React.FC = () => {
           variant="ghost"
           size="sm"
           onClick={() => navigate('/')}
-          className="text-sonkil-primary hover:bg-sonkil-primary/10"
+          className="text-sohngil-primary hover:bg-sohngil-primary/10"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           돌아가기
@@ -38,7 +38,7 @@ const ProfilePage: React.FC = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
-            <User className="h-5 w-5 text-sonkil-primary" />
+            <User className="h-5 w-5 text-sohngil-primary" />
             개인 정보
           </CardTitle>
         </CardHeader>
@@ -51,7 +51,7 @@ const ProfilePage: React.FC = () => {
           </Row>
           <Row label="주로 불편한 곳">
             {profile.tendencies.map((t) => (
-              <Badge key={t} className="bg-sonkil-primary/10 text-sonkil-primary-dark">
+              <Badge key={t} className="bg-sohngil-primary/10 text-sohngil-primary-dark">
                 {t}
               </Badge>
             ))}
@@ -62,7 +62,7 @@ const ProfilePage: React.FC = () => {
       <Button
         onClick={() => navigate('/onboarding')}
         variant="outline"
-        className="w-full border-sonkil-primary text-sonkil-primary hover:bg-sonkil-primary hover:text-white"
+        className="w-full border-sohngil-primary text-sohngil-primary hover:bg-sohngil-primary hover:text-white"
       >
         <Pencil className="h-4 w-4 mr-2" />
         정보 수정하기

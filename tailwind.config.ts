@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// 손길 브랜드 컬러
-				sonkil: {
+				sohngil: {
 					primary: '#7DD3C0',
 					'primary-light': '#A8E6D5',
 					'primary-dark': '#5BA396',

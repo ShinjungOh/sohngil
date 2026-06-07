@@ -84,7 +84,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
       <Card className="overflow-hidden">
-        <CardHeader className="bg-gradient-to-r from-sonkil-primary to-sonkil-secondary text-white">
+        <CardHeader className="bg-gradient-to-r from-sohngil-primary to-sohngil-secondary text-white">
           <CardTitle className="text-center">
             <div className="text-2xl font-bold">{point.koName}</div>
             <div className="text-sm opacity-90 mt-1">{point.name}</div>
@@ -94,7 +94,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
         <CardContent className="p-6 space-y-6">
           {/* 타이머 */}
           <div className="text-center space-y-4">
-            <div className="text-6xl font-bold text-sonkil-primary-dark">
+            <div className="text-6xl font-bold text-sohngil-primary-dark">
               {remainingTime}
             </div>
             <div className="text-sm text-gray-600">초 남음</div>
@@ -107,7 +107,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
 
           {/* 지압 정보 */}
           <div className="space-y-4">
-            <div className="bg-sonkil-primary/5 p-4 rounded-lg">
+            <div className="bg-sohngil-primary/5 p-4 rounded-lg">
               <h4 className="font-semibold text-gray-800 mb-3">위치</h4>
               <div className="flex items-center gap-4">
                 <HandPointPreview point={point} widthPx={110} />
@@ -115,7 +115,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
               </div>
             </div>
 
-            <div className="bg-sonkil-secondary/5 p-4 rounded-lg">
+            <div className="bg-sohngil-secondary/5 p-4 rounded-lg">
               <h4 className="font-semibold text-gray-800 mb-2">방법</h4>
               <p className="text-gray-700">{point.method}</p>
               <div className="mt-2 flex items-center gap-2">
@@ -133,7 +133,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
               onClick={handleStart}
               variant={isActive ? "outline" : "default"}
               size="lg"
-              className={`flex-1 ${!isActive ? 'bg-sonkil-primary hover:bg-sonkil-primary-dark text-white' : ''}`}
+              className={`flex-1 ${!isActive ? 'bg-sohngil-primary hover:bg-sohngil-primary-dark text-white' : ''}`}
             >
               {isActive ? (
                 <>
@@ -173,7 +173,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
           <Button
             onClick={onNext}
             variant="outline"
-            className="w-full border-sonkil-primary text-sonkil-primary hover:bg-sonkil-primary hover:text-white"
+            className="w-full border-sohngil-primary text-sohngil-primary hover:bg-sohngil-primary hover:text-white"
           >
             다음 지압점으로
           </Button>

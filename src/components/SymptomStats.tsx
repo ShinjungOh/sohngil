@@ -66,7 +66,7 @@ const SymptomStats: React.FC<{ history: HistoryRecord[] }> = ({ history }) => {
     <Card>
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-lg">
-          <BarChart3 className="h-5 w-5 text-sonkil-primary" />
+          <BarChart3 className="h-5 w-5 text-sohngil-primary" />
           증상별 통계
         </CardTitle>
       </CardHeader>
@@ -82,8 +82,8 @@ const SymptomStats: React.FC<{ history: HistoryRecord[] }> = ({ history }) => {
                 onClick={() => setPeriod(p.id)}
                 className={`rounded-full px-4 ${
                   period === p.id
-                    ? 'bg-sonkil-primary text-white hover:bg-sonkil-primary-dark'
-                    : 'text-gray-600 hover:text-sonkil-primary'
+                    ? 'bg-sohngil-primary text-white hover:bg-sohngil-primary-dark'
+                    : 'text-gray-600 hover:text-sohngil-primary'
                 }`}
               >
                 {p.label}
@@ -110,11 +110,11 @@ const SymptomStats: React.FC<{ history: HistoryRecord[] }> = ({ history }) => {
                   </span>
                   <div className="flex-1 h-5 rounded-full bg-gray-100 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-sonkil-primary to-sonkil-secondary transition-all"
+                      className="h-full rounded-full bg-gradient-to-r from-sohngil-primary to-sohngil-secondary transition-all"
                       style={{ width: `${maxCount > 0 ? (count / maxCount) * 100 : 0}%` }}
                     />
                   </div>
-                  <span className="w-6 shrink-0 text-right text-sm font-semibold text-sonkil-primary-dark">
+                  <span className="w-6 shrink-0 text-right text-sm font-semibold text-sohngil-primary-dark">
                     {count}
                   </span>
                 </div>
@@ -123,11 +123,11 @@ const SymptomStats: React.FC<{ history: HistoryRecord[] }> = ({ history }) => {
 
             {/* 최다 사용 지압점 */}
             {topPoint && (
-              <div className="flex items-center gap-3 rounded-lg bg-sonkil-primary/5 p-3">
-                <Sparkles className="h-5 w-5 text-sonkil-accent" />
+              <div className="flex items-center gap-3 rounded-lg bg-sohngil-primary/5 p-3">
+                <Sparkles className="h-5 w-5 text-sohngil-accent" />
                 <div className="text-sm text-gray-700">
                   가장 많이 사용한 지압점{' '}
-                  <span className="font-semibold text-sonkil-primary-dark">
+                  <span className="font-semibold text-sohngil-primary-dark">
                     {pointName(topPoint.id)}
                   </span>{' '}
                   ({topPoint.count}회)

@@ -21,9 +21,9 @@ const AppLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sonkil-background via-white to-sonkil-secondary/5">
+    <div className="min-h-screen bg-gradient-to-br from-sohngil-background via-white to-sohngil-secondary/5">
       {/* 헤더 */}
-      <div className="w-full bg-gradient-to-r from-sonkil-primary to-sonkil-secondary text-white py-6 px-4 mb-8">
+      <div className="w-full bg-gradient-to-r from-sohngil-primary to-sohngil-secondary text-white py-6 px-4 mb-8">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             {inFlow && (
