@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { AcupressurePoint } from '@/data/acupressureData';
 import { Play, Pause, RotateCcw, Check } from 'lucide-react';
+import HandPointPreview from '@/components/HandPointPreview';
 
 interface PressureGuideProps {
   point: AcupressurePoint;
@@ -107,8 +108,11 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
           {/* 지압 정보 */}
           <div className="space-y-4">
             <div className="bg-sonkil-primary/5 p-4 rounded-lg">
-              <h4 className="font-semibold text-gray-800 mb-2">위치</h4>
-              <p className="text-gray-700">{point.description}</p>
+              <h4 className="font-semibold text-gray-800 mb-3">위치</h4>
+              <div className="flex items-center gap-4">
+                <HandPointPreview point={point} widthPx={110} />
+                <p className="flex-1 text-gray-700">{point.description}</p>
+              </div>
             </div>
 
             <div className="bg-sonkil-secondary/5 p-4 rounded-lg">

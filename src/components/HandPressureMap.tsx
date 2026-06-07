@@ -22,6 +22,8 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
 }) => {
   const [selectedSide, setSelectedSide] = useState<'palm' | 'back'>('palm');
   const [selectedPoint, setSelectedPoint] = useState<AcupressurePoint | null>(null);
+  // 지압 순서 목록(또는 점)에 hover 시 해당 점을 반짝이게 하기 위한 상태
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   // 단일 소스(acupressureData)에서 추천된 점만, 현재 보고 있는 면(손바닥/손등)으로 필터
   const filteredPoints = acupressurePoints.filter(
@@ -107,6 +109,7 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
             */}
             {filteredPoints.map((point, index) => {
               const isSelected = selectedPoint?.id === point.id;
+              const isHighlighted = hoveredId === point.id; // 목록/점 hover 시 반짝임
               // 라벨은 항상 손 바깥쪽(가장자리)을 향하게 → 가까운 점끼리 라벨이 겹치지 않음
               const labelOnRight = point.position.x >= 50;
               const DOT_SIZE = 26;
@@ -130,13 +133,21 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
                   <button
                     type="button"
                     onClick={() => handlePointClick(point)}
+                    onMouseEnter={() => setHoveredId(point.id)}
+                    onMouseLeave={() => setHoveredId(null)}
                     aria-label={`${index + 1}. ${point.koName}`}
-                    className="flex shrink-0 items-center justify-center rounded-full font-bold text-white text-xs shadow-md transition-colors duration-300 animate-pulse-gentle"
+                    className={`flex shrink-0 items-center justify-center rounded-full font-bold text-white text-xs transition-shadow duration-300 ${
+                      isHighlighted ? 'animate-pulse-gentle' : ''
+                    }`}
                     style={{
                       width: DOT_SIZE,
                       height: DOT_SIZE,
                       backgroundColor: isSelected ? '#ef4444' : '#f97316',
                       border: '3px solid white',
+                      boxShadow: isHighlighted
+                        ? '0 0 0 4px rgba(249,115,22,0.35), 0 0 14px 4px rgba(249,115,22,0.65)'
+                        : '0 1px 3px rgba(0,0,0,0.2)',
+                      animationDuration: '2.8s', // 반짝임 속도
                     }}
                   >
                     {index + 1}
@@ -181,6 +192,8 @@ const HandPressureMap: React.FC<HandPressureMapProps> = ({
                     : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
                 }`}
                 onClick={() => handlePointClick(point)}
+                onMouseEnter={() => setHoveredId(point.id)}
+                onMouseLeave={() => setHoveredId(null)}
               >
                 <div className="flex items-center gap-3">
                   <Badge className="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 text-white">
