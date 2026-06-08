@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Bell, Volume2, BellRing, Monitor } from 'lucide-react';
+import { ArrowLeft, Bell, Volume2, BellRing, Monitor, ShieldCheck } from 'lucide-react';
 import { useSettings } from '@/context/SettingsContext';
-import { isTauri } from '@/lib/tauri';
+import { isTauri, invokeResult, invokeSafe } from '@/lib/tauri';
 import { playChime } from '@/lib/sound';
 
 const INTERVALS = [30, 60, 90, 120];
@@ -33,6 +33,26 @@ const Toggle: React.FC<{ checked: boolean; onChange: (v: boolean) => void }> = (
 const SettingsPage: React.FC = () => {
   const navigate = useNavigate();
   const { settings, update } = useSettings();
+  const [permMsg, setPermMsg] = useState<'granted' | 'denied' | null>(null);
+
+  // macOS 알림 권한 요청 (조용히). 리마인더 켤 때 자동 호출.
+  const ensurePermission = () => invokeResult<boolean>('request_notification_permission');
+
+  // 알림 테스트: 권한 요청 후 실제 알림 발송
+  const testNotification = async () => {
+    const granted = await ensurePermission();
+    if (granted) {
+      await invokeSafe('notify', { title: '손길 ✋', body: '알림이 정상적으로 동작해요!' });
+      setPermMsg('granted');
+    } else {
+      setPermMsg('denied');
+    }
+  };
+
+  const onReminderToggle = (v: boolean) => {
+    update({ reminderEnabled: v });
+    if (v) ensurePermission(); // 켤 때 권한 확보 (웹에서는 no-op)
+  };
 
   const Row: React.FC<{
     icon: React.ReactNode;
@@ -74,6 +94,38 @@ const SettingsPage: React.FC = () => {
         </div>
       )}
 
+      {/* 알림 권한 (데스크탑) */}
+      {isTauri && (
+        <Card>
+          <CardContent className="p-5 space-y-3">
+            <Row
+              icon={<ShieldCheck className="h-5 w-5" />}
+              title="알림 권한"
+              desc="리마인더·완료 알림을 받으려면 macOS 알림 허용이 필요해요"
+            >
+              <Button
+                type="button"
+                size="sm"
+                onClick={testNotification}
+                className="bg-sohngil-primary text-white hover:bg-sohngil-primary-dark"
+              >
+                알림 테스트
+              </Button>
+            </Row>
+            {permMsg === 'granted' && (
+              <p className="text-sm text-emerald-600">
+                알림이 허용됐어요. 방금 테스트 알림을 보냈습니다.
+              </p>
+            )}
+            {permMsg === 'denied' && (
+              <p className="text-sm text-red-500">
+                알림이 꺼져 있어요. <b>시스템 설정 &gt; 알림 &gt; 손길</b>에서 허용해주세요.
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
       {/* 리마인더 */}
       <Card>
         <CardContent className="p-5 divide-y divide-gray-100">
@@ -82,10 +134,7 @@ const SettingsPage: React.FC = () => {
             title="지압 리마인더"
             desc="오래 앉아있으면 지압 알림을 보내드려요"
           >
-            <Toggle
-              checked={settings.reminderEnabled}
-              onChange={(v) => update({ reminderEnabled: v })}
-            />
+            <Toggle checked={settings.reminderEnabled} onChange={onReminderToggle} />
           </Row>
 
           {settings.reminderEnabled && (

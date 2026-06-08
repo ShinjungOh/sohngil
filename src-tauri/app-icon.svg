@@ -5,10 +5,10 @@
       <stop offset="100%" stop-color="#87CEEB"/>
     </linearGradient>
   </defs>
-  <!-- 원 (약간의 여백) -->
-  <circle cx="512" cy="512" r="480" fill="url(#bg)"/>
+  <!-- 원 (macOS 아이콘 표준에 맞춰 ~80% 크기, 주변 투명 여백) -->
+  <circle cx="512" cy="512" r="410" fill="url(#bg)"/>
   <!-- 하트 (중앙 정렬, 흰 외곽선) -->
-  <g transform="translate(512, 512) scale(18)">
+  <g transform="translate(512, 512) scale(15.4)">
     <path d="M0 13
              C-1 10 -13 2.5 -13 -5
              C-13 -9.2 -9.8 -12 -6 -12

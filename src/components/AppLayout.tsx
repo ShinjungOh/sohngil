@@ -1,8 +1,15 @@
 import React from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Home, Heart, Calendar, User, Settings } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { ArrowLeft, Heart, Calendar, User, Settings } from 'lucide-react';
 import { useSession } from '@/context/SessionContext';
+
+const NAV = [
+  { to: '/history', label: '기록', Icon: Calendar },
+  { to: '/profile', label: '내 정보', Icon: User },
+  { to: '/settings', label: '설정', Icon: Settings },
+];
 
 const AppLayout: React.FC = () => {
   const location = useLocation();
@@ -10,11 +17,12 @@ const AppLayout: React.FC = () => {
   const { reset } = useSession();
 
   const path = location.pathname;
-  const isHome = path === '/';
   const isOnboarding = path === '/onboarding';
-  // 지압 진행/기록/프로필 등 홈이 아닌 화면
-  const inFlow = !isHome && !isOnboarding;
+  // 지압 진행 중인 화면(뒤로 가기가 의미 있는 곳)
+  const isSessionFlow =
+    ['/analyzing', '/result', '/complete'].includes(path) || path.startsWith('/guide');
 
+  // 로고 = 처음으로 (세션 초기화 후 홈)
   const goHome = () => {
     reset();
     navigate('/');
@@ -24,26 +32,27 @@ const AppLayout: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-sohngil-background via-white to-sohngil-secondary/5">
       {/* 헤더 */}
       <div className="w-full bg-gradient-to-r from-sohngil-primary to-sohngil-secondary text-white py-6 px-4 mb-8">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {inFlow && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => navigate(-1)}
-                className="text-white hover:bg-white/20"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                이전
-              </Button>
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            {isSessionFlow && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => navigate(-1)}
+                    aria-label="이전"
+                    className="text-white hover:bg-white/20"
+                  >
+                    <ArrowLeft className="h-5 w-5" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>이전</TooltipContent>
+              </Tooltip>
             )}
 
-            <button
-              type="button"
-              onClick={() => !isOnboarding && navigate('/')}
-              className="flex items-center gap-3"
-            >
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+            <button type="button" onClick={goHome} className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div className="text-left">
@@ -53,50 +62,28 @@ const AppLayout: React.FC = () => {
             </button>
           </div>
 
+          {/* 항상 표시되는 네비게이션 (온보딩 제외) */}
           {!isOnboarding && (
-            <div className="flex items-center gap-2">
-              {isHome && (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => navigate('/history')}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <Calendar className="h-4 w-4 mr-2" />
-                    기록
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => navigate('/profile')}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <User className="h-4 w-4 mr-2" />
-                    내 정보
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => navigate('/settings')}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <Settings className="h-4 w-4 mr-2" />
-                    설정
-                  </Button>
-                </>
-              )}
-              {inFlow && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={goHome}
-                  className="text-white hover:bg-white/20"
-                >
-                  <Home className="h-4 w-4 mr-2" />
-                  처음으로
-                </Button>
-              )}
+            <div className="flex items-center gap-1">
+              {NAV.map(({ to, label, Icon }) => {
+                const active = path === to;
+                return (
+                  <Tooltip key={to}>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => navigate(to)}
+                        aria-label={label}
+                        className={`text-white hover:bg-white/20 ${active ? 'bg-white/25' : ''}`}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>{label}</TooltipContent>
+                  </Tooltip>
+                );
+              })}
             </div>
           )}
         </div>

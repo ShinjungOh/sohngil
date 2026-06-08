@@ -41,6 +41,19 @@ fn notify(app: tauri::AppHandle, title: String, body: String) {
   let _ = app.notification().builder().title(title).body(body).show();
 }
 
+/// macOS 알림 권한 확인/요청 — 허용되면 true
+#[tauri::command]
+fn request_notification_permission(app: tauri::AppHandle) -> bool {
+  use tauri_plugin_notification::PermissionState;
+  if let Ok(PermissionState::Granted) = app.notification().permission_state() {
+    return true;
+  }
+  matches!(
+    app.notification().request_permission(),
+    Ok(PermissionState::Granted)
+  )
+}
+
 fn show_main_window(app: &tauri::AppHandle) {
   if let Some(window) = app.get_webview_window("main") {
     let _ = window.show();
@@ -54,7 +67,11 @@ pub fn run() {
   tauri::Builder::default()
     .plugin(tauri_plugin_notification::init())
     .manage(Mutex::new(ReminderState::default()))
-    .invoke_handler(tauri::generate_handler![set_reminder, notify])
+    .invoke_handler(tauri::generate_handler![
+      set_reminder,
+      notify,
+      request_notification_permission
+    ])
     .setup(|app| {
       if cfg!(debug_assertions) {
         app.handle().plugin(

@@ -18,6 +18,20 @@ export async function invokeSafe(
   }
 }
 
+/** Tauri 명령 호출(결과 반환) — 웹 환경에서는 null */
+export async function invokeResult<T>(
+  cmd: string,
+  args?: Record<string, unknown>
+): Promise<T | null> {
+  if (!isTauri) return null;
+  try {
+    return await invoke<T>(cmd, args);
+  } catch (e) {
+    console.warn(`[tauri] invoke "${cmd}" 실패`, e);
+    return null;
+  }
+}
+
 /** Tauri 이벤트 구독 — 웹 환경에서는 no-op */
 export async function onTauriEvent(
   event: string,
