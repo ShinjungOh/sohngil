@@ -5,6 +5,9 @@ import { Progress } from '@/components/ui/progress';
 import { AcupressurePoint } from '@/data/acupressureData';
 import { Play, Pause, RotateCcw, Check } from 'lucide-react';
 import HandPointPreview from '@/components/HandPointPreview';
+import { useSettings } from '@/context/SettingsContext';
+import { playChime } from '@/lib/sound';
+import { invokeSafe } from '@/lib/tauri';
 
 interface PressureGuideProps {
   point: AcupressurePoint;
@@ -17,6 +20,7 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
   onComplete,
   onNext
 }) => {
+  const { settings } = useSettings();
   const [isActive, setIsActive] = useState(false);
   const [remainingTime, setRemainingTime] = useState(point.duration);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -26,6 +30,19 @@ const PressureGuide: React.FC<PressureGuideProps> = ({
     setIsActive(false);
     setIsCompleted(false);
   }, [point]);
+
+  // 지압 타이머 완료 시: 알림음 + 시스템 알림(데스크탑)
+  useEffect(() => {
+    if (!isCompleted) return;
+    if (settings.soundEnabled) playChime();
+    if (settings.notifyOnComplete) {
+      invokeSafe('notify', {
+        title: '손길 ✋',
+        body: `${point.koName} 지압 완료! 수고하셨어요.`,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCompleted]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;

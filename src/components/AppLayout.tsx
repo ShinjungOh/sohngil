@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Home, Heart, Calendar, User } from 'lucide-react';
+import { ArrowLeft, Home, Heart, Calendar, User, Settings } from 'lucide-react';
 import { useSession } from '@/context/SessionContext';
 
 const AppLayout: React.FC = () => {
@@ -74,6 +74,15 @@ const AppLayout: React.FC = () => {
                   >
                     <User className="h-4 w-4 mr-2" />
                     내 정보
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => navigate('/settings')}
+                    className="text-white hover:bg-white/20"
+                  >
+                    <Settings className="h-4 w-4 mr-2" />
+                    설정
                   </Button>
                 </>
               )}

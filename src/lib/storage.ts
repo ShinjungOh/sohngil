@@ -36,4 +36,5 @@ export function removeKey(key: string): void {
 export const STORAGE_KEYS = {
   profile: 'sohngil-profile',
   history: 'sohngil-history',
+  settings: 'sohngil-settings',
 } as const;
