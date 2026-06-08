@@ -1,12 +1,68 @@
-# 손길(SohnGil)
+# 손길(SohnGil) ✋
 
-## 🔗 프로젝트 링크
+<p align="center">
+  <img src="public/og-image.png" alt="손길 - 당신의 건강을 위한 작은 손길" width="600" />
+</p>
 
-[손길 ✋](https://sohngil.lovable.app)
+> 책상에 오래 앉아있는 현대인을 위한 **손바닥 지압 셀프케어 앱** (웹 + Mac 데스크탑)
+
+<div align="center">
+  <img src="docs/screenshots/01-onboarding.png" width="23%" alt="온보딩 - 정보 입력" />
+  <img src="docs/screenshots/02-symptom-select.png" width="23%" alt="증상 선택" />
+  <img src="docs/screenshots/03-guide.png" width="23%" alt="지압 가이드" />
+  <img src="docs/screenshots/04-history.png" width="23%" alt="기록·통계" />
+</div>
+
+<br/>
+
+## 🔗 링크
+
+- 🌐 **웹**: https://sohngil.vercel.app
+- 💻 **맥 데스크탑 앱**: [최신 릴리스 다운로드](https://github.com/ShinjungOh/sohngil/releases/latest) (Apple Silicon)
+
+<br/>
+
+## 💻 데스크탑 앱 설치 (macOS)
+
+1. [Releases](https://github.com/ShinjungOh/sohngil/releases/latest)에서 `sohngil_x.x.x_aarch64.dmg` 다운로드 (Apple Silicon 전용)
+2. 열어서 '손길'을 응용 프로그램 폴더로 드래그
+3. 첫 실행 시 "확인되지 않은 개발자" 경고가 뜨면 → 앱 우클릭 → **열기** (코드 서명 미적용)
+
+**데스크탑 전용 기능**: 메뉴바 트레이 상주, 지압 리마인더 알림, 타이머 완료 알림음/시스템 알림
+
+<br/>
+
+## 🛠️ 기술 스택
+
+- **프론트엔드**: React 18 · TypeScript · Vite · Tailwind CSS · shadcn/ui · React Router
+- **데스크탑**: Tauri 2 (Rust)
+- **배포**: Vercel(웹) · GitHub Releases(.dmg)
+- **패키지 매니저**: bun
+
+<br/>
+
+## ⚙️ 로컬 실행 / 빌드
+
+```bash
+bun install            # 의존성 설치
+
+bun run dev            # 웹 개발 서버 (http://localhost:8080)
+bun run build          # 웹 프로덕션 빌드 (dist/)
+
+bun run tauri dev      # 데스크탑 앱 개발 모드
+bun run tauri build    # 데스크탑 .dmg 빌드
+```
+
+> 데스크탑 개발/빌드에는 [Rust](https://rustup.rs) 툴체인이 필요합니다.
 
 <br/>
 
 ## 🎭 페르소나
+
+<details>
+<summary>타깃 사용자 페르소나 4명</summary>
+
+<br/>
 
 ![CleanShot 2025-07-02 at 11 23 16@2x](https://github.com/user-attachments/assets/1839934f-f473-4111-aa1d-b225436437d4)
 
@@ -39,9 +95,16 @@
 - **니즈**: 눈의 피로 해소, 손목 통증 완화, 두통 관리
 - **페인 포인트**: 불규칙한 생활 패턴, VDT 증후군, 운동 부족
 
+</details>
+
 <br/>
 
 ## 🎞️ 사용자 시나리오 및 스토리
+
+<details>
+<summary>사용 시나리오 4편 · 인사이트</summary>
+
+<br/>
 
 ### 1. 개발자의 오후 3시 루틴
 **상황**: 박지민이 점심 후 코드 리뷰를 하다가 심한 목 통증과 두통을 느낌
@@ -111,3 +174,5 @@
 - 5-10분의 짧은 시간 투자로 즉각적 효과를 원함
 - 복잡한 의학 지식보다 simple하고 직관적인 가이드 선호
 - 일상에 자연스럽게 녹아드는 건강 습관 형성 희망
+
+</details>
