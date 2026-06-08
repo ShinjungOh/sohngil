@@ -22,11 +22,16 @@
 
 <br/>
 
-## 💻 데스크탑 앱 설치 (macOS)
+## 💻 데스크탑 앱 설치 (macOS · Apple Silicon)
 
-1. [Releases](https://github.com/ShinjungOh/sohngil/releases/latest)에서 `sohngil_x.x.x_aarch64.dmg` 다운로드 (Apple Silicon 전용)
-2. 열어서 '손길'을 응용 프로그램 폴더로 드래그
-3. 첫 실행 시 "확인되지 않은 개발자" 경고가 뜨면 → 앱 우클릭 → **열기** (코드 서명 미적용)
+1. [Releases](https://github.com/ShinjungOh/sohngil/releases/latest)에서 `sohngil_x.x.x_aarch64.dmg` 다운로드
+2. 열어서 '손길'을 **응용 프로그램** 폴더로 드래그
+3. 앱이 **"손상되었기 때문에 열 수 없습니다"** 라고 뜨면, 터미널에서 아래 명령으로 격리 속성을 제거한 뒤 실행하세요:
+   ```bash
+   xattr -cr /Applications/손길.app
+   ```
+
+> 코드 서명·공증을 하지 않은 무료 배포라서 생기는 정상적인 macOS 보안 차단입니다. **파일이 손상된 것은 아닙니다.**
 
 **데스크탑 전용 기능**: 메뉴바 트레이 상주, 지압 리마인더 알림, 타이머 완료 알림음/시스템 알림
 
