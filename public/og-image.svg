@@ -10,7 +10,7 @@
   <!-- 로고: 원 + 하트 (중앙 정렬) -->
   <g transform="translate(600, 205)">
     <circle cx="0" cy="0" r="92" fill="#ffffff" fill-opacity="0.22"/>
-    <g transform="scale(5.2)">
+    <g transform="scale(2.875)">
       <path d="M0 13
                C-1 10 -13 2.5 -13 -5
                C-13 -9.2 -9.8 -12 -6 -12
@@ -18,7 +18,7 @@
                C1 -10.3 3.3 -12 6 -12
                C9.8 -12 13 -9.2 13 -5
                C13 2.5 1 10 0 13 Z"
-            fill="none" stroke="#ffffff" stroke-width="2.9" stroke-linejoin="round" stroke-linecap="round"/>
+            fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round"/>
     </g>
   </g>
 

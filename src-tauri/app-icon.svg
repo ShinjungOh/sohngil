@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7DD3C0"/>
+      <stop offset="100%" stop-color="#87CEEB"/>
+    </linearGradient>
+  </defs>
+  <!-- 원 (약간의 여백) -->
+  <circle cx="512" cy="512" r="480" fill="url(#bg)"/>
+  <!-- 하트 (중앙 정렬, 흰 외곽선) -->
+  <g transform="translate(512, 512) scale(18)">
+    <path d="M0 13
+             C-1 10 -13 2.5 -13 -5
+             C-13 -9.2 -9.8 -12 -6 -12
+             C-3.3 -12 -1 -10.3 0 -8
+             C1 -10.3 3.3 -12 6 -12
+             C9.8 -12 13 -9.2 13 -5
+             C13 2.5 1 10 0 13 Z"
+          fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>
